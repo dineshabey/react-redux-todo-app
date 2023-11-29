@@ -11,31 +11,34 @@ store.subscribe(() => {
 });
 
 
-store.dispatch({
-  type: "create_todo",
-  payload: {
-    id: '02',
-    task: 'Learn React',
-    dateTime: '2023/11/29 20:30',
-    desc: 'Learn React with REDUX',
-    status: 'notStarted',
-  },
-});
 
+store.dispatch(createTodo('06', 'Learn Redux', '2023-08-01 10:32', 'Hello you can learn'));
+store.dispatch(createTodo('07', 'Learn ABC', '2023-08-01 10:32', 'Hello you can learn'));
 
-store.dispatch({
-  type: "create_todo",
-  payload: {
-    id: '03',
-    task: 'Learn LAravel',
-    dateTime: '2023/11/29 20:30',
-    desc: 'Learn React with REDUX',
-    status: 'notStarted',
-  },
-});
+// store.dispatch({
+//   type: "create_todo",
+//   payload: {
+//     id: '02',
+//     task: 'Learn React',
+//     dateTime: '2023/11/29 20:30',
+//     desc: 'Learn React with REDUX',
+//     status: 'notStarted',
+//   },
+// });
 
-
-
+//Action creator
+function createTodo(id, task, dateTime, desc) {
+  return {
+    type: "create_todo",
+    payload: {
+      id,
+      task,
+      dateTime,
+      desc,
+      status:'notStarted',
+    },
+  }
+}
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
