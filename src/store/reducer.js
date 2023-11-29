@@ -2,7 +2,9 @@ export function reducer(state = [], actions) {
 
     switch (actions.type) {
         case 'create_todo':
-            return; //update state
+            return [
+                ...state, actions.payload
+            ];//update state
         case 'update_todo':
             return; //update state
         case 'remove_todo':
@@ -14,14 +16,4 @@ export function reducer(state = [], actions) {
             return state; //state
     }
 
-
-    // if(action is create_todo){
-    //     todo.push(action.payload);
-    // } else if(action is update_todo){
-    //     finde and update todo
-    // } else if(action is remove_todo){
-    //     find and remove todo by action.payload
-    // } else if(action is change_status_todo){
-    //     find and update todo status by action.payload
-    // }
 }
