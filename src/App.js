@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { produce } from 'immer';
 
 function App() {
-  
+
   //Before use IMMER =================================================================
   const originalState = [
     {
@@ -15,17 +16,27 @@ function App() {
     },
   ];
 
-  const updateState = [...originalState];
+  // const updateState = [...originalState];
 
-  updateState[1] = {
-    ...updateState[1],
-    done: true
-  };
+  // updateState[1] = {
+  //   ...updateState[1],
+  //   done: true
+  // };
 
-  updateState.push({ title: 'new title', done: false });
-  console.log(updateState);
+  // updateState.push({ title: 'new title', done: false });
+  // console.log(updateState);
 
-  //================================================================
+  //=========================== USE IMMER=====================================
+
+  const updatedImmerStatus = produce(originalState, draft => {
+    draft[1].done = true;
+    draft.push({ title: 'Share on media', done: false });
+  });
+
+
+  console.log(updatedImmerStatus);
+  console.log(originalState);
+
 
   return (
     <div className="App">
