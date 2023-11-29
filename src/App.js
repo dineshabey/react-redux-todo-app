@@ -1,20 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 import { produce } from 'immer';
+import { useDispatch, useSelector } from 'react-redux';
+import { createTodo } from './store/actions';
+import store from './store/store';
 
 function App() {
 
+  const dispatch = useDispatch();
+  const state = useSelector(store=>store);
+
+  console.log(state);
+
+  const handleClick = () => {
+    dispatch(createTodo('06', 'Learn Redux', '2023-08-01 10:32', 'Hello you can learn'));
+    // dispatch(createTodo('07', 'Learn ABC', '2023-08-01 10:32', 'Hello you can learn'));
+
+  }
+
+
   //Before use IMMER =================================================================
-  const originalState = [
-    {
-      title: 'Learn Redux',
-      done: true,
-    },
-    {
-      title: 'Learn Immer',
-      done: false,
-    },
-  ];
+  // const originalState = [
+  //   {
+  //     title: 'Learn Redux',
+  //     done: true,
+  //   },
+  //   {
+  //     title: 'Learn Immer',
+  //     done: false,
+  //   },
+  // ];
 
   // const updateState = [...originalState];
 
@@ -28,10 +43,10 @@ function App() {
 
   //=========================== USE IMMER=====================================
 
-  const updatedImmerStatus = produce(originalState, draft => {
-    draft[1].done = true;
-    draft.push({ title: 'Share on media', done: false });
-  });
+  // const updatedImmerStatus = produce(originalState, draft => {
+  //   draft[1].done = true;
+  //   draft.push({ title: 'Share on media', done: false });
+  // });
 
 
   // console.log(updatedImmerStatus);
@@ -53,6 +68,9 @@ function App() {
         >
           Learn React
         </a>
+
+        <button onClick={handleClick} style={{ fontSize: '40PX', marginTop: '20px' }}>Add Item</button>
+
       </header>
     </div>
   );
