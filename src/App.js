@@ -2,6 +2,31 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  
+  //Before use IMMER =================================================================
+  const originalState = [
+    {
+      title: 'Learn Redux',
+      done: true,
+    },
+    {
+      title: 'Learn Immer',
+      done: false,
+    },
+  ];
+
+  const updateState = [...originalState];
+
+  updateState[1] = {
+    ...updateState[1],
+    done: true
+  };
+
+  updateState.push({ title: 'new title', done: false });
+  console.log(updateState);
+
+  //================================================================
+
   return (
     <div className="App">
       <header className="App-header">

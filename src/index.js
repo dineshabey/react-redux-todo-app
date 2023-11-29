@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 
 console.log(store);
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
 
 
