@@ -34,8 +34,8 @@ function App() {
   });
 
 
-  console.log(updatedImmerStatus);
-  console.log(originalState);
+  // console.log(updatedImmerStatus);
+  // console.log(originalState);
 
 
   return (
