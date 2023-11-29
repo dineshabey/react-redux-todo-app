@@ -1,15 +1,17 @@
+import { CREATE_TODO, DELETE_TODO } from "./actions";
+
+
 export function reducer(state = [], actions) {
 
     switch (actions.type) {
-        case 'CREATE_TODO':
-            console.log('call');
+        case CREATE_TODO:
             return [
                 ...state, actions.payload
             ];//update state
         case 'UPDATE_TODO':
             return; //update state
-        case 'REMOVE_TODO':
-            return; //update state
+        case DELETE_TODO:
+            return state.filter(item => item.id != actions.payload); //update state
         case 'CHAGE_STATUS_TODO':
             return; //update state
 

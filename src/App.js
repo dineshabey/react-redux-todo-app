@@ -2,20 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 import { produce } from 'immer';
 import { useDispatch, useSelector } from 'react-redux';
-import { createTodo } from './store/actions';
+import { createTodo, deleteTOdo } from './store/actions';
 import store from './store/store';
 
 function App() {
 
   const dispatch = useDispatch();
-  const state = useSelector(store=>store);
+  const state = useSelector(store => store);
 
   console.log(state);
 
   const handleClick = () => {
-    dispatch(createTodo('06', 'Learn Redux', '2023-08-01 10:32', 'Hello you can learn'));
-    // dispatch(createTodo('07', 'Learn ABC', '2023-08-01 10:32', 'Hello you can learn'));
-
+    dispatch(createTodo(
+      `${state.length + 1}`,
+      `Learn Redux ${state.length + 1}`,
+      '2023-08-01 10:32',
+      'Hello you can learn'
+    ));
+  }
+  const handleDelete = (id) => {
+    dispatch(deleteTOdo(id));
   }
 
 
@@ -70,6 +76,10 @@ function App() {
         </a>
 
         <button onClick={handleClick} style={{ fontSize: '40PX', marginTop: '20px' }}>Add Item</button>
+
+        {state.map((val, key) => {
+          return <button key={key} onClick={() => handleDelete(val.id)} style={{ fontSize: '30px', marginTop: '20px' }}>{val.task}-Delete</button>;
+        })}
 
       </header>
     </div>
