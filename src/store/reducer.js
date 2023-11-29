@@ -11,7 +11,7 @@ export function reducer(state = [], actions) {
             return; //update state
 
         default:
-            return; //state
+            return state; //state
     }
 
 
