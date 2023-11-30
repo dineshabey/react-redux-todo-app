@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { produce } from 'immer';
 import { useDispatch, useSelector } from 'react-redux';
-import { createTodo, deleteTOdo } from './store/actions';
+import { createTodo, deleteTOdo } from './store/action/todoActions';
 import store from './store/store';
 
 function App() {

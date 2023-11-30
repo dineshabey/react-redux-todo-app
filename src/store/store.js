@@ -1,5 +1,5 @@
 import { legacy_createStore } from "redux";
-import { reducer } from "./reducer";
+import { reducer } from "./reducers/todoReducer";
 
 
 const store = legacy_createStore(reducer);
