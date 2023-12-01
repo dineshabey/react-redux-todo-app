@@ -8,9 +8,11 @@ import { getUserList } from "./store/action/userAction";
 function App() {
 
   const dispatch = useDispatch();
-  const state = useSelector(store => store);
+  const state = useSelector(store => store.todoReducer);
+  const userState = useSelector(store => store.userReducer);
 
-  console.log(state);
+  // console.log(state);
+  console.log(userState);
 
   const handleClick = () => {
     dispatch(createTodo(
