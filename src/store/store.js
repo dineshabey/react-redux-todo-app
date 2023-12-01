@@ -1,7 +1,8 @@
 import { legacy_createStore } from "redux";
-import { reducer } from "./reducers/todoReducer";
+// import { todoReducer } from "./reducers/todoReducer";
+import { userReducer} from "./reducers/userReducer";
 
 
-const store = legacy_createStore(reducer);
+const store = legacy_createStore(userReducer);
 
 export default store;

@@ -1,7 +1,7 @@
 import { CREATE_TODO, DELETE_TODO } from "../action/todoActions";
 
 
-export function reducer(state = [], actions) {
+export function todoReducer(state = [], actions) {
 
     switch (actions.type) {
         case CREATE_TODO:

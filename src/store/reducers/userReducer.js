@@ -1,8 +1,9 @@
-import { type } from "@testing-library/user-event/dist/type";
+import { GET_USER_LIST } from "../action/userAction";
 
-export default function userReducer(state = [], action) {
-    switch (action, type) {
-
+export function userReducer(state = [], action) {
+    switch (action.type) {
+        case GET_USER_LIST:
+            return [...state, action.payload];
 
         default:
             return state;

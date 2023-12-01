@@ -1,7 +1,7 @@
-export const GET_USER_LIST = 'GET_USER_LIST;
+export const GET_USER_LIST = 'GET_USER_LIST';
 
 
-export default function getUserList() {
+export function getUserList() {
     return {
         type: GET_USER_LIST,
         payload: {
