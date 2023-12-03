@@ -1,16 +1,18 @@
-import { CREATE_TODO, DELETE_TODO } from "../action/todoActions";
 
+import * as Actions from "../action/todoActions"; 
 
-export function todoReducer(state = [], actions) {
+const initialState = [];
+
+export function todoReducer(state = initialState, actions) {
 
     switch (actions.type) {
-        case CREATE_TODO:
+        case Actions.CREATE_TODO:
             return [
                 ...state, actions.payload
             ];//update state
         case 'UPDATE_TODO':
             return; //update state
-        case DELETE_TODO:
+        case Actions.DELETE_TODO:
             return state.filter(item => item.id != actions.payload); //update state
         case 'CHAGE_STATUS_TODO':
             return; //update state

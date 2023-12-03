@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export function userReducer(state = initialState, action) {
-    // console.log(action.payload);
     switch (action.type) {
         case Actions.GET_USER_LIST_START:
             return { ...state, isLoading: true };
