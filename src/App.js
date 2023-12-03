@@ -10,9 +10,9 @@ function App() {
   const dispatch = useDispatch();
   const state = useSelector(store => store.todoReducer);
   const userState = useSelector(store => store.userReducer);
-
+  const allStore = useSelector(store => store);
   // console.log(state);
-  console.log(userState);
+  console.log(allStore);
 
   const handleClick = () => {
     dispatch(createTodo(
