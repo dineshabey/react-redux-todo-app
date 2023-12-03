@@ -1,9 +1,20 @@
-import { GET_USER_LIST } from "../action/userAction";
+import * as Actions from "../action/userAction";
 
-export function userReducer(state = [], action) {
+const initialState = {
+    isLoading: false,
+    userList: [],
+    isError: false
+};
+
+export function userReducer(state = initialState, action) {
+    // console.log(action.payload);
     switch (action.type) {
-        case GET_USER_LIST:
-            return [...state, action.payload];
+        case Actions.GET_USER_LIST_START:
+            return { ...state, isLoading: true };
+        case Actions.GET_USER_LIST_SUCCESS:
+            return { ...state, userList: [...state.userList, ...action.payload], isLoading: false };
+        case Actions.GET_USER_LIST_FAILURE:
+            return { ...state, isLoading: false, isError: true };
 
         default:
             return state;
